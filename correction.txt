@@ -1,6 +1,6 @@
 Numéro d'équipe : 21
-Lien vers le dépôt GitHub PRIVÉ de votre TP : 
-Avez-vous invité les correcteurs comme collaborateurs à votre dépôt GitHub (Oui/Non) :
+Lien vers le dépôt GitHub PRIVÉ de votre TP : https://github.com/DereckBelanger152/TP3_H2025
+Avez-vous invité les correcteurs comme collaborateurs à votre dépôt GitHub (Oui/Non) : oui
 
 Étudiant 1 :
     - Nom complet : Dereck Bélanger
