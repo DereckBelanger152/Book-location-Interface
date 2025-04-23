@@ -25,9 +25,12 @@ class Revue(Document):
             numero (int): Numéro de la revue
             frequence (str): Fréquence de publication (mensuelle, trimestrielle, etc.)
         """
-        # TODO: Implémenter cette méthode
-        # Appeler le constructeur de la classe parent et initialiser
-        # les attributs spécifiques aux revues
+        # Appeler le constructeur de la classe parent
+        super().__init__(titre, auteur, annee, code_unique)
+        
+        # Initialiser les attributs spécifiques à Revue
+        self.numero = numero
+        self.frequence = frequence
 
     def __str__(self):
         """Retourne une représentation textuelle de la revue.
@@ -35,7 +38,8 @@ class Revue(Document):
         Returns:
             str: Description de la revue
         """
-        # TODO: Implémenter cette méthode
+        statut = "disponible" if self.disponible else "empruntée"
+        return f"{self.titre} (n°{self.numero}) - {self.frequence} - {self.annee} - {statut}"
 
 
 def test_initialisation_revue():

@@ -27,9 +27,22 @@ class Livre(Document):
             isbn (str): Numéro ISBN
             nb_pages (int): Nombre de pages
         """
-        # TODO: Implémenter cette méthode
-        # Appeler le constructeur de la classe parent et initialiser
-        # les attributs spécifiques aux livres
+        # Appeler le constructeur de la classe parent
+        super().__init__(titre, auteur, annee, code_unique)
+
+        # Initialiser les attributs spécifiques à Livre
+        self.editeur = editeur
+        self.isbn = isbn
+        self.nb_pages = nb_pages
+
+    def __str__(self):
+        """Retourne une représentation textuelle du livre.
+
+        Returns:
+            str: Description du livre
+        """
+        statut = "disponible" if self.disponible else "emprunté"
+        return f"{self.titre} par {self.auteur} ({self.annee}) - {statut}"
 
 
 def test_initialisation_livre():

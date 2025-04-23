@@ -2,13 +2,6 @@ import tkinter as tk
 
 from bibliotheque import Bibliotheque
 from bibliotheque_app import BibliothequeApp
-
-# Le module suivant n'existe pas encore, on vous demande de le créer, incluant les
-# trois fonctions «charger_...» accompagnées de leur documentation.
-#
-# IMPORTANT : Il est normal que l'ajout d'un nouvel utilisateur via l'interface graphique ne modifie pas
-# le fichier utilisateurs.txt. Vous n'avez pas à gérer la sauvegarde automatique des nouvelles données
-# dans les fichiers texte.
 from gestion_fichiers import charger_livres, charger_revues, charger_utilisateurs
 
 

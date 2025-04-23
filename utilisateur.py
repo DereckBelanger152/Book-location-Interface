@@ -16,7 +16,10 @@ class Utilisateur:
             prenom (str): Prénom
             id_utilisateur (str): Identifiant unique
         """
-        # TODO: Implémenter cette méthode
+        self.nom = nom
+        self.prenom = prenom
+        self.id_utilisateur = id_utilisateur
+        self.documents_empruntes = []
 
     def emprunter_document(self, document):
         """Permet à l'utilisateur d'emprunter un document.
@@ -27,9 +30,11 @@ class Utilisateur:
         Returns:
             bool: True si l'emprunt a réussi, False sinon
         """
-        # TODO: Implémenter cette méthode
-        # Vérifier si le document est disponible, l'emprunter et
-        # l'ajouter à la liste des documents empruntés par l'utilisateur
+        if document.disponible:
+            document.emprunter()
+            self.documents_empruntes.append(document)
+            return True
+        return False
 
     def retourner_document(self, document):
         """Permet à l'utilisateur de retourner un document.
@@ -40,9 +45,11 @@ class Utilisateur:
         Returns:
             bool: True si le retour a réussi, False sinon
         """
-        # TODO: Implémenter cette méthode
-        # Vérifier si le document fait partie des documents empruntés par l'utilisateur,
-        # le retourner et le retirer de la liste des documents empruntés par l'utilisateur
+        if document in self.documents_empruntes:
+            document.retourner()
+            self.documents_empruntes.remove(document)
+            return True
+        return False
 
     def __str__(self):
         """Retourne une représentation textuelle de l'utilisateur.
