@@ -18,7 +18,11 @@ class Document:
             annee (int): Année de publication
             code_unique (str): Code d'identification unique
         """
-        # TODO: Implémenter cette méthode
+        self.titre = titre
+        self.auteur = auteur
+        self.annee = annee
+        self.code_unique = code_unique
+        self.disponible = True
 
     def emprunter(self):
         """Marque le document comme emprunté s'il est disponible.
@@ -26,7 +30,11 @@ class Document:
         Returns:
             bool: True si l'emprunt a réussi, False sinon
         """
-        # TODO: Implémenter cette méthode
+        if self.disponible:
+            self.disponible = False
+            return True
+        else:
+            return False
         # Si le document est disponible, le marquer comme non disponible et
         # retourner True, sinon retourner False
 
@@ -36,7 +44,11 @@ class Document:
         Returns:
             bool: True si le retour a réussi, False sinon
         """
-        # TODO: Implémenter cette méthode
+        if not self.disponible:
+            self.disponible = True
+            return True
+        else:
+            return False
         # Si le document n'est pas disponible (a été emprunté), le marquer comme disponible et
         # retourner True, sinon retourner False
 
@@ -46,7 +58,8 @@ class Document:
         Returns:
             str: Description du document
         """
-        # TODO: Implémenter cette méthode
+        statut = "disponible" if self.disponible else "emprunté"
+        return f"{self.titre} par {self.auteur} ({self.annee}) - {statut}"
 
 
 def test_initialisation():

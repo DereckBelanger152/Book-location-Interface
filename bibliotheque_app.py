@@ -73,7 +73,9 @@ class BibliothequeApp(tk.Tk):
             frame_recherche, text="Rechercher", command=self.rechercher_documents
         ).grid(row=0, column=4, padx=5, pady=5)
 
-        # TODO: À compléter
+        ttk.Button(
+            frame_recherche, text="Réinitialiser", command=self.reinitialiser
+        ).grid(row=0, column=5, padx=5, pady=5)
         # Ajouter un bouton "Réinitialiser" à la droite du champ de recherche.
         # Ce bouton devra appeler la méthode `self.reinitialiser` lorsqu'il est cliqué.
 
@@ -291,7 +293,9 @@ class BibliothequeApp(tk.Tk):
         Elle remet le critère de recherche à 'titre', vide le champ de valeur,
         puis actualise l'affichage pour refléter ces modifications.
         """
-        # TODO: Implémenter cette méthode
+        self.critere_var.set("titre")
+        self.valeur_var.set("")
+        self.actualiser_liste_documents()
         # Aide :
         # - Utilisez la méthode `set` sur `self.critere_var` et `self.valeur_var`
         # - Appelez la méthode `self.actualiser_liste_documents()` pour refléter les changements

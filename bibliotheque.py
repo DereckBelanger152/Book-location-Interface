@@ -13,7 +13,9 @@ class Bibliotheque:
         Args:
             nom (str): Nom de la bibliothèque
         """
-        # TODO: Implémenter cette méthode
+        self.nom = nom
+        self.documents = []
+        self.utilisateurs = []
 
     def ajouter_document(self, document):
         """Ajoute un document à la collection.
@@ -21,7 +23,7 @@ class Bibliotheque:
         Args:
             document (Document): Document à ajouter
         """
-        # TODO: Implémenter cette méthode
+        self.documents.append(document)
 
     def ajouter_utilisateur(self, utilisateur):
         """Ajoute un utilisateur à la bibliothèque.
@@ -29,7 +31,8 @@ class Bibliotheque:
         Args:
             utilisateur (Utilisateur): Utilisateur à ajouter
         """
-        # TODO: Implémenter cette méthode
+
+        self.utilisateurs.append(utilisateur)
 
     def rechercher_documents(self, critere, valeur):
         """Recherche des documents selon un critère: retourne la liste des documents
@@ -61,4 +64,4 @@ class Bibliotheque:
         Returns:
             list: Liste des documents disponibles
         """
-        # TODO: Implémenter cette méthode
+        return self.documents

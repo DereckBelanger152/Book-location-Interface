@@ -8,9 +8,9 @@ Avez-vous invité les correcteurs comme collaborateurs à votre dépôt GitHub (
     - Estimation du temps de réalisation :
 
 Étudiant 2 :
-    - Nom complet :
-    - Numéro de dossier (NI) :
-    - Estimation du temps de réalisation :
+    - Nom complet : Olivier Gagnon
+    - Numéro de dossier (NI) : 537296830
+    - Estimation du temps de réalisation : 3 heures
 
 
 Fonctionnalités
