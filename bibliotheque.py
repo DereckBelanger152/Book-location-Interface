@@ -64,4 +64,4 @@ class Bibliotheque:
         Returns:
             list: Liste des documents disponibles
         """
-        return self.documents
+        return [doc for doc in self.documents if doc.disponible]

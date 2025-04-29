@@ -440,7 +440,7 @@ class BibliothequeApp(tk.Tk):
         id_utilisateur = utilisateur_str.split("(")[-1].strip(")")
 
         # Récupérer le code du document
-        code_document = document_str.split("-")[-1].strip()
+        code_document = document_str.split("-", 1)[-1].strip()
 
         # Trouver l'utilisateur
         utilisateur_trouve = None

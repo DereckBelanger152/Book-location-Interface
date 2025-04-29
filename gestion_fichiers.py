@@ -16,8 +16,8 @@ def charger_livres(fichier):
         with open(fichier, "r", encoding="utf-8") as f:
             for ligne in f:
                 # Format attendu : titre;auteur;annee;code_unique;nb_pages
-                titre, auteur, annee, code_unique, nb_pages = ligne.strip().split(";")
-                livre = Livre(titre, auteur, int(annee), code_unique, int(nb_pages))
+                titre, auteur, annee, code_unique, editeur, isbn, nb_pages = ligne.strip().split(";")
+                livre = Livre(titre, auteur, int(annee), code_unique, editeur, isbn, int(nb_pages))
                 livres.append(livre)
     except FileNotFoundError:
         print(f"Erreur : Le fichier {fichier} est introuvable.")
