@@ -60,24 +60,55 @@ class Utilisateur:
         return f"{self.prenom} {self.nom} (ID: {self.id_utilisateur})"
 
 
+from document import Document
+from utilisateur import Utilisateur
+
+def test_emprunter_document():
+    """Teste l'emprunt d'un document par un utilisateur."""
+    utilisateur = Utilisateur("Doe", "John", "U12345")
+    document = Document("Titre Test", "Auteur Test", 2023, "CODE-TEST")
+
+    # Test emprunt d'un document disponible
+    assert utilisateur.emprunter_document(document) == True, "L'emprunt d'un document disponible devrait réussir"
+    assert document in utilisateur.documents_empruntes, "Le document devrait être ajouté à la liste des documents empruntés"
+    assert document.disponible == False, "Le document ne devrait plus être disponible après emprunt"
+
+    # Test emprunt d'un document non disponible
+    assert utilisateur.emprunter_document(document) == False, "L'emprunt d'un document non disponible devrait échouer"
+
+    print("Test de l'emprunt de document réussi!")
+
+
+def test_retourner_document():
+    """Teste le retour d'un document par un utilisateur."""
+    utilisateur = Utilisateur("Doe", "John", "U12345")
+    document = Document("Titre Test", "Auteur Test", 2023, "CODE-TEST")
+
+    # Ajouter le document à la liste des emprunts
+    utilisateur.emprunter_document(document)
+
+    # Test retour d'un document emprunté
+    assert utilisateur.retourner_document(document) == True, "Le retour d'un document emprunté devrait réussir"
+    assert document not in utilisateur.documents_empruntes, "Le document devrait être retiré de la liste des documents empruntés"
+    assert document.disponible == True, "Le document devrait être disponible après retour"
+
+    # Test retour d'un document non emprunté
+    assert utilisateur.retourner_document(document) == False, "Le retour d'un document non emprunté devrait échouer"
+
+    print("Test du retour de document réussi!")
+
+
+def test_str_utilisateur():
+    """Teste la méthode __str__ de la classe Utilisateur."""
+    utilisateur = Utilisateur("Doe", "John", "U12345")
+    assert str(utilisateur) == "John Doe (ID: U12345)", "La méthode __str__ ne retourne pas la bonne représentation"
+    print("Test de la méthode __str__ réussi!")
+
+
 # Exécution des tests
 if __name__ == "__main__":
     print("Début des tests pour la classe Utilisateur")
-    # TODO: Ajouter des tests pour toutes les méthodes de la classe Utilisateur.
-    #
-    # - Inspirez-vous de la structure des tests déjà présents dans les modules document, livre et revue.
-    # - Créez des objets Utilisateur et Document (fictifs ou réels, selon vos besoins de test).
-    # - Testez l'emprunt d'un document disponible :
-    #     - Vérifiez que la méthode retourne True
-    #     - Vérifiez que le document est ajouté à la liste des documents empruntés
-    #     - Vérifiez que le document n'est plus disponible
-    # - Testez le cas où un utilisateur essaie d'emprunter un document non disponible :
-    #     - Vérifiez que la méthode retourne False
-    # - Testez le retour d'un document précédemment emprunté :
-    #     - Vérifiez que la méthode retourne True
-    #     - Vérifiez que le document est retiré de la liste des documents empruntés
-    #     - Vérifiez que le document est à nouveau disponible
-    # - Testez le retour d'un document qui n'a pas été emprunté :
-    #     - Vérifiez que la méthode retourne False
-    # - Testez la méthode __str__ pour vous assurer que l'affichage correspond aux attentes
-    print("Tous les tests ont été passés avec succès!")
+    test_emprunter_document()
+    test_retourner_document()
+    test_str_utilisateur()
+    print("Tous les tests pour la classe Utilisateur ont été passés avec succès!")

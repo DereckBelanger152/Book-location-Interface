@@ -5,7 +5,7 @@ Avez-vous invité les correcteurs comme collaborateurs à votre dépôt GitHub (
 Étudiant 1 :
     - Nom complet : Dereck Bélanger
     - Numéro de dossier (NI) : 537293691
-    - Estimation du temps de réalisation :
+    - Estimation du temps de réalisation : 3 heures
 
 Étudiant 2 :
     - Nom complet : Olivier Gagnon
